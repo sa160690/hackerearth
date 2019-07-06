@@ -24,7 +24,7 @@ import java.util.stream.Stream;
  * 1 <= N <= 10^5
  * 1 <= li <= 10^4
  */
-public class PolygonPossibility {
+public class ProblemOne {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int testCases = Integer.parseInt(br.readLine());
