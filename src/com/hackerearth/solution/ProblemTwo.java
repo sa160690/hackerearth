@@ -1,8 +1,9 @@
 package com.hackerearth.solution;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.stream.Stream;
+import java.util.StringTokenizer;
 
 /**
  * Can you solve it ?
@@ -31,11 +32,14 @@ import java.util.stream.Stream;
  */
 public class ProblemTwo {
     public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(br.readLine());
+        FastReader fr = new FastReader();
+        int t = fr.nextInt();
         while (t-- > 0) {
-            int n = Integer.parseInt(br.readLine());
-            int[] arr = Stream.of(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+            int n = fr.nextInt();
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++) {
+                arr[i] = fr.nextInt();
+            }
             int maxValue = Integer.MIN_VALUE;
             for (int i = 0; i < arr.length; i++) {
                 for (int j = i + 1; j < arr.length; j++) {
@@ -46,6 +50,42 @@ public class ProblemTwo {
                 }
             }
             System.out.println(maxValue);
+        }
+    }
+
+    static class FastReader {
+        private BufferedReader br;
+        private StringTokenizer st;
+
+        public FastReader() {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        private String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        public double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        public String nextLine() throws IOException {
+            return br.readLine();
         }
     }
 }
