@@ -36,21 +36,29 @@ public class ProblemTwo {
         int t = fr.nextInt();
         while (t-- > 0) {
             int n = fr.nextInt();
-            int[] arr = new int[n];
+            int[] arrOne = new int[n];
+            int[] arrTwo = new int[n];
             for (int i = 0; i < n; i++) {
-                arr[i] = fr.nextInt();
+                int tempInt = fr.nextInt();
+                arrOne[i] = tempInt + i;
+                arrTwo[i] = tempInt - i;
             }
-            int maxValue = Integer.MIN_VALUE;
-            for (int i = 0; i < arr.length; i++) {
-                for (int j = i + 1; j < arr.length; j++) {
-                    int expressiionVal = Math.abs(arr[i] - arr[j]) + Math.abs(i - j);
-                    if (expressiionVal > maxValue) {
-                        maxValue = expressiionVal;
-                    }
-                }
-            }
-            System.out.println(maxValue);
+            System.out.println(Math.max(getMinMaxValueDiff(arrOne), getMinMaxValueDiff(arrTwo)));
         }
+    }
+
+    private static int getMinMaxValueDiff(int[] arrOne) {
+        int maxValueOne = Integer.MIN_VALUE;
+        int minValueOne = Integer.MAX_VALUE;
+        for (int i = 0; i < arrOne.length; i++) {
+            if (arrOne[i] >= maxValueOne) {
+                maxValueOne = arrOne[i];
+            }
+            if (arrOne[i] <= minValueOne) {
+                minValueOne = arrOne[i];
+            }
+        }
+        return Math.abs(maxValueOne - minValueOne);
     }
 
     static class FastReader {
