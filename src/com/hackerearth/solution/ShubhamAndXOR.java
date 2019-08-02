@@ -6,9 +6,20 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+/**
+ * You are given an array of n integer numbers , , .. ,. Calculate the number of pair of indices  such that  <  and  xor
+ * <p>
+ * Input format
+ * - First line: n denoting the number of array elements
+ * - Second line: n space separated integers , , .. ,.
+ * <p>
+ * Output format
+ * Output the required number of pairs.
+ * <p>
+ * Constraints
+ */
 public class ShubhamAndXOR {
     public static void main(String[] args) {
-        long startTime = System.nanoTime();
         FastReader fr = new FastReader();
         int n = fr.nextInt();
         int[] elements = new int[n];
